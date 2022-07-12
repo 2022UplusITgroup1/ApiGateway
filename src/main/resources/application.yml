@@ -14,10 +14,10 @@ spring:
     gateway:
       routes:
         - id: product-service
-          uri: http://localhost:64412 #forwarding할 주소, http://localhost:8080/product 로 들어오면 http://localhost:64412로 포워딩됨
+          uri: http://localhost:64421 #forwarding할 주소, http://localhost:8080/product 로 들어오면 http://localhost:64412로 포워딩됨
           predicates:
             - Path=/product/**
         - id: order-service
-          uri: http://localhost:54412
+          uri: http://localhost:54421
           predicates:
             - Path=/order/**
