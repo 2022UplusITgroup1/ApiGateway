@@ -1,0 +1,28 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 2000
+        response-timeout: 2s
+      routes:
+        - id: productservice
+          uri: http://localhost:64421/ #forwarding할 주소, http://localhost:8000/product 로 들어오면 http://localhost:64421로 포워딩 됨
+          predicates:
+            - Path=/product/**
+        - id: orderservice
+          uri: http://localhost:54421/
+          predicates:
+            - Path=/order/**
+        - id: searchservice
+          uri: http://localhost:44421/
+          predicates:
+            - Path=/search/**
