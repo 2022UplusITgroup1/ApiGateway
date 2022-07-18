@@ -26,3 +26,17 @@ spring:
           uri: http://localhost:44421/
           predicates:
             - Path=/search/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:3000"
+            allow-credentials: true
+            allowed-headers:
+              - x-requested-with
+              - content-type
+            allowed-methods:
+              - POST
+              - GET
+              - PUT
+              - DELETE
