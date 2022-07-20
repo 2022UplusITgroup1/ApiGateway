@@ -15,15 +15,15 @@ spring:
         response-timeout: 2s
       routes:
         - id: productservice
-          uri: http://localhost:64421/ #forwarding할 주소, http://localhost:8000/product 로 들어오면 http://localhost:64421로 포워딩 됨
+          uri: lb://PRODUCTSERVICE
           predicates:
             - Path=/product/**
         - id: orderservice
-          uri: http://localhost:54421/
+          uri: lb://ORDERSERVICE
           predicates:
             - Path=/order/**
         - id: searchservice
-          uri: http://localhost:44421/
+          uri: lb://SEARCHSERVICE
           predicates:
             - Path=/search/**
       globalcors:
