@@ -1,0 +1,45 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:8761/eureka
+    instance:
+      instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 2000
+        response-timeout: 2s
+      routes:
+        - id: productservice
+          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:64421/
+          predicates:
+            - Path=/product/**
+        - id: orderservice
+          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:54421/
+          predicates:
+            - Path=/order/**
+        - id: searchservice
+          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:44421/
+          predicates:
+            - Path=/search/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:3000"
+            allow-credentials: true
+            allowed-headers:
+              - x-requested-with
+              - content-type
+            allowed-methods:
+              - POST
+              - GET
+              - PUT
+              - DELETE
