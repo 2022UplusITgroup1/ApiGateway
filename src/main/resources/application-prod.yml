@@ -18,15 +18,15 @@ spring:
         response-timeout: 2s
       routes:
         - id: productservice
-          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:64421/
+          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:64421
           predicates:
             - Path=/product/**
         - id: orderservice
-          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:54421/
+          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:54421
           predicates:
             - Path=/order/**
         - id: searchservice
-          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:44421/
+          uri: http://ab5dc0ba438514d2fa539a54a2bde9fb-638882921.ap-northeast-2.elb.amazonaws.com:44421
           predicates:
             - Path=/search/**
       globalcors:
