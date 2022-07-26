@@ -6,7 +6,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone:  http://a9630be5aa11c4d0a8ae29e80ddf7437-1705600513.ap-northeast-2.elb.amazonaws.com/eureka
+      defaultZone:  http://a9630be5aa11c4d0a8ae29e80ddf7437-1705600513.ap-northeast-2.elb.amazonaws.com:8761/eureka
     instance:
       instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
 
