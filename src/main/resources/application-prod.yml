@@ -33,7 +33,7 @@ spring:
         cors-configurations:
           '[/**]':
             allowed-origins:
-              - "http://localhost:3000"
+              - "http://front-example.s3-website.ap-northeast-2.amazonaws.com"
             allow-credentials: true
             allowed-headers:
               - x-requested-with
