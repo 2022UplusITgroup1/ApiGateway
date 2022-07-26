@@ -26,7 +26,7 @@ spring:
           predicates:
             - Path=/order/**
         - id: searchservice
-          uri: http://a9630be5aa11c4d0a8ae29e80ddf7437-1705600513.ap-northeast-2.elb.amazonaws.com:44421/
+          uri: http://10.100.73.186:44421/
           predicates:
             - Path=/search/**
       globalcors:
