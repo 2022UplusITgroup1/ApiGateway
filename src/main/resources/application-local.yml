@@ -1,12 +1,9 @@
+logging:
+  level:
+    root: info
+
 server:
   port: 8000
-  ssl:
-    enabled: true
-    key-alias: ushopkeystore
-    key-store: classpath:ushopkeystore.p12
-    key-store-password: 12345678
-    key-password: 12345678
-    key-store-type: PKCS12
 
 eureka:
   client:
@@ -21,10 +18,6 @@ spring:
   cloud:
     gateway:
       httpclient:
-        ssl:
-          handshake-timeout-millis: 10000
-          close-notify-flush-timeout-millis: 3000
-          close-notify-read-timeout-millis: 0
         connect-timeout: 2000
         response-timeout: 2s
       routes:
