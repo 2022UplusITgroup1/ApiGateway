@@ -18,11 +18,11 @@ spring:
         response-timeout: 2s
       routes:
         - id: productservice
-          uri: http://a9630be5aa11c4d0a8ae29e80ddf7437-1705600513.ap-northeast-2.elb.amazonaws.com:64421/
+          uri: http://10.100.83.140:64421/
           predicates:
             - Path=/product/**
         - id: orderservice
-          uri:  http://a9630be5aa11c4d0a8ae29e80ddf7437-1705600513.ap-northeast-2.elb.amazonaws.com:54421/
+          uri:  http://10.100.90.70:54421/
           predicates:
             - Path=/order/**
         - id: searchservice
